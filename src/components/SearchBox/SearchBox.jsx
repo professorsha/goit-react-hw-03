@@ -1,13 +1,18 @@
 import css from './SearchBox.module.css';
 
-export default function SearchBox({value, onSelect}){
-const handleChange=(e)=>{
-    onSelect(e.target.value);
-}
-    return(
-        <div className={css.searchBox}>
-            <input type="text" value={value} onChange={handleChange}>
-            </input>
-        </div>
-    )
+export default function SearchBox({ value, onFilter }) {
+  return (
+    <div className={css.searchBox}>
+      <label htmlFor="search">Find contacts by name</label>
+      <input
+        type="text"
+        name="search"
+        id="search"
+        value={value}
+        onChange={e => {
+          onFilter(e.target.value);
+        }}
+      ></input>
+    </div>
+  );
 }

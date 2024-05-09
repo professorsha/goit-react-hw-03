@@ -5,7 +5,7 @@ export default function ContactList({ contacts, onDelete }) {
   return (
     <ul className={css.list}>
       {contacts.map(contact => (
-        <li key={contact.id}>
+        <li className={css.listItem} key={contact.id} >
           <Contact contact={contact} onDelete={onDelete}/>
         </li>
       ))}

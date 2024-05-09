@@ -1,12 +1,29 @@
 import css from './Contact.module.css';
-// import { CiUser } from "react-icons/ci";
+import { FaUser } from 'react-icons/fa';
+import { BsFillTelephoneFill } from 'react-icons/bs';
 
-export default function Contact({ contact: { name, number,id },onDelete }) {
+export default function Contact({ contact: { name, number, id }, onDelete }) {
   return (
-    <div className={css.container}>
-      <p>{name}</p>
-      <p>{number}</p>
-      <button type="button" onClick={()=>{onDelete(id)}}>Delete</button>
-    </div>
+    <>
+      <div>
+        <div className={css.contactName}>
+          <FaUser />
+          <p>{name}</p>
+        </div>
+        <div className={css.contactName}>
+          <BsFillTelephoneFill />
+          <p>{number}</p>
+        </div>
+      </div>
+      <button
+        className={css.btn}
+        type="button"
+        onClick={() => {
+          onDelete(id);
+        }}
+      >
+        Delete
+      </button>
+    </>
   );
 }

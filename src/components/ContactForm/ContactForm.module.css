@@ -5,10 +5,12 @@
   flex-direction: column;
   row-gap: 10px;
   padding: 10px;
+  margin-bottom: 10px;
 }
 .field {
   border: 2px solid grey;
   border-radius: 4px;
+  padding: 10px;
 }
 .btn {
     width: 130px;
@@ -19,4 +21,5 @@
 }
 .error{
     color: red;
+    font-weight: 700;
 }
