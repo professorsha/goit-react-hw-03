@@ -1,0 +1,22 @@
+.form {
+  border: 2px solid gray;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 10px;
+}
+.field {
+  border: 2px solid grey;
+  border-radius: 4px;
+}
+.btn {
+    width: 130px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: rgb(227, 227, 243);
+}
+.error{
+    color: red;
+}
