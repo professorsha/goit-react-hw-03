@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import * as yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import css from './ContactForm.module.css';
-import data from '../../dataUsers.json';
+
 
 const initialValues = {
   name: '',
@@ -11,7 +11,7 @@ const initialValues = {
   id:'',
 };
 
-export default function ContactForm() {
+export default function ContactForm({onAdd}) {
   const FieldId = useId();
   const contactSchema = yup.object().shape({
     name: yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required field"),
@@ -19,20 +19,13 @@ export default function ContactForm() {
   });
   
   const handleSubmit = (values, actions) => {
-    values.id = nanoid();
+    // values.id = nanoid();
+    console.log(values.number);
+   onAdd({id:nanoid(),
+     name:values.name,
+     number:values.number
+   });
     
-    // const addContact = (newContact)=>{
-
-    // }
-    
-    data.push(JSON.stringify(values));
-
-
-
-
-
-
-    console.log(values);
    
     actions.resetForm();
   };
