@@ -6,11 +6,23 @@ import SearchBox from '../SearchBox/SearchBox';
 import ContactList from '../ContactList/ContactList';
 
 export default function App() {
-  const [contacts, setContacts] = useState(initialContacts);
+  const [contacts, setContacts] = useState(()=>{
+    const savedObject = localStorage.getItem("contacts");
+
+    // Якщо там щось є, парсимо і повертаємо
+    // це значення як початкове значення стану
+     if (savedObject !== null) {
+       return JSON.parse(savedObject);
+     }
+  
+    // // У протилежному випадку повертаємо
+    // // яке-небудь значення за замовчуванням
+    return initialContacts;
+  });
   const [filter, setFilter] = useState('');
   
   useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify({contacts}));
+    localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
 
   const addContact = newContact => {
